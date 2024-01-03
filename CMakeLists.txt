@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project(SatSim VERSION 0.1.0 LANGUAGES C CXX)
+project(cpp_pySat VERSION 0.1.0 LANGUAGES C CXX)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
@@ -8,10 +8,10 @@ include(CPack)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(ROOT_DIR "D:\\src")
+set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
 
 set(BOOST_ROOT "${ROOT_DIR}\\lib\\boost_1_83_0\\")
-set(Boost_LIBRARY_DIR "${ROOT_DIR}\\src\\lib\\boost_1_83_0\\stage\\lib")
+set(Boost_LIBRARY_DIR "${ROOT_DIR}\\lib\\boost_1_83_0\\stage\\lib")
 set(Boost_INCLUDE_DIR ${BOOST_ROOT})
 
 
@@ -30,7 +30,7 @@ set( Boost_USE_STATIC_LIBS ON )
 enable_testing()
 
 
-add_executable(SatSim main.cpp)
-target_link_libraries(SatSim ${BOOST_LIBRARIES})
+add_executable(cpp_pySat main.cpp Setup.cpp Setup.h)
+target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
 
 
