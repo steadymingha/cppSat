@@ -20,6 +20,8 @@ find_package(Boost 1.83.0 COMPONENTS)
 include_directories("${ROOT_DIR}\\lib\\eigen-3.4.0\\")
 include_directories(${Boost_INCLUDE_DIR})
 
+include_directories("${PROJECT_SOURCE_DIR}\\inc"})
+
 link_directories(${Boost_LIBRARY_DIR})
 
 add_definitions( -DBOOST_ALL_NO_LIB )
@@ -30,7 +32,7 @@ set( Boost_USE_STATIC_LIBS ON )
 enable_testing()
 
 
-add_executable(cpp_pySat main.cpp Setup.cpp Setup.h)
+add_executable(cpp_pySat main.cpp Astro/astro_definition.cpp inc/Astro/time_converter.hpp inc/frame_converter.hpp inc/Astro/frame_converter.hpp inc/Astro/planet_ephemeris.hpp)# Setup.cpp Setup.h)
 target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
 
 
