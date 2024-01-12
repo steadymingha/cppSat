@@ -33,7 +33,7 @@ set( Boost_USE_STATIC_LIBS ON )
 enable_testing()
 
 
-add_executable(cpp_pySat main.cpp)# Setup.cpp Setup.h)
+add_executable(cpp_pySat main.cpp Astro/time_converter.cpp)# Setup.cpp Setup.h)
 target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
 
 

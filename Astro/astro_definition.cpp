@@ -3,7 +3,6 @@
 
 
 
-
 namespace Propagator {
     AstroEnvSetup::AstroEnvSetup(std::string& time_table_fdir,std::string& ephem_fdir) {
         astro_time = TimeConverter(time_table_fdir);

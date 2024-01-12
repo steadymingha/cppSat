@@ -8,7 +8,7 @@ namespace propagator {
         std::string time_table_fdir = "Astro/time_table.txt";
         std::string ephem_fdir = "Astro/ephem.txt";
 
-        bool status = Errorcode.
+        bool status = Errorcode.Success
 
 
 

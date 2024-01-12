@@ -246,3 +246,6 @@ namespace propagator{
         WARNING_MORE_THAN_3_STATIONS_IN_MEASUREMENT_DATA
     };
 }
+
+
+#endif
