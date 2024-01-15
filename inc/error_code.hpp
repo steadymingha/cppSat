@@ -1,5 +1,4 @@
-#ifndef _ERROR_CODE_H
-#define _ERROR_CODE_H
+#pragma once
 
 namespace propagator{
     enum class ErrorCode{
@@ -247,5 +246,3 @@ namespace propagator{
     };
 }
 
-
-#endif

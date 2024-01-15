@@ -1,5 +1,4 @@
-#ifndef _SETUP_H
-#define _SETUP_H
+#pragma once
 
 #include "Astro/astro_definition.hpp"
 #include "error_code.hpp"
@@ -14,5 +13,3 @@ namespace propagator{
 
 }
 
-
-#endif

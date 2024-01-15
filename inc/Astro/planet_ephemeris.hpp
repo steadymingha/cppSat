@@ -1,5 +1,4 @@
-#ifndef _PLANET_EPHEMERIS_H
-#define _PLANET_EPHEMERIS_H
+#pragma once
 
 namespace propagator{
     class PlanetEphemeris{
@@ -10,5 +9,3 @@ namespace propagator{
 
     };
 }
-
-#endif

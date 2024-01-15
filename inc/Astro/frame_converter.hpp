@@ -1,5 +1,4 @@
-#ifndef _FRAME_CONVERTER_H
-#define _FRAME_CONVERTER_H
+#pragma once
 
 namespace propagator{
     class FrameConverter{
@@ -11,4 +10,3 @@ namespace propagator{
     };
 }
 
-#endif //_FRAME_CONVERTER_H

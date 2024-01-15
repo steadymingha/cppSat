@@ -1,5 +1,4 @@
-#ifndef _ASTRO_DEF_H
-#define _ASTRO_DEF_H
+#pragma once
 
 #include "Astro/time_converter.hpp"
 #include "Astro/frame_converter.hpp"
@@ -12,13 +11,11 @@ namespace propagator{
         AstroEnvSetup();
         ~AstroEnvSetup();
 
-        static propagator::TimeConverter astro_time;
-        static propagator::FrameConverter iers;
-        static propagator::PlanetEphemeris de405;
+        static TimeConverter astro_time;
+        static FrameConverter iers;
+        static PlanetEphemeris de405;
 
     };
 
 }
 
-
-#endif

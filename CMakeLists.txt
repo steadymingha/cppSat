@@ -8,8 +8,8 @@ include(CPack)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
-set(ROOT_DIR "D:\\src")
+set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
+#set(ROOT_DIR "D:\\src")
 
 set(BOOST_ROOT "${ROOT_DIR}\\lib\\boost_1_83_0\\")
 set(Boost_LIBRARY_DIR "${ROOT_DIR}\\lib\\boost_1_83_0\\stage\\lib")
@@ -21,7 +21,7 @@ find_package(Boost 1.83.0 COMPONENTS)
 include_directories("${ROOT_DIR}\\lib\\eigen-3.4.0\\")
 include_directories(${Boost_INCLUDE_DIR})
 
-include_directories("${PROJECT_SOURCE_DIR}\\inc"})
+include_directories("${PROJECT_SOURCE_DIR}/inc"})
 
 link_directories(${Boost_LIBRARY_DIR})
 
