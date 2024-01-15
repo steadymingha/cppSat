@@ -18,6 +18,13 @@ namespace propagator {
     }
 
     ErrorCode ReadLeadSecondFromIERS(const std::string &iers_fdir) {
+        ErrorCode r_status = ErrorCode.SUCCESS;
+
+        auto parsed_data = ParameterParsing()
+
+
+
+
 
 
 
