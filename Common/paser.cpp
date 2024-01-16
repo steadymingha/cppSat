@@ -1,27 +1,32 @@
-#include "common.hpp"
+#include "parser.hpp"
 
-namespace {
-    ParameterParsing::ParameterParsing(){
-
-    }
-    
-    Vector get_item_list()
+namespace propagator
+{
+    ParameterParsing::ParameterParsing(const std::string& file_dir):file_(file_dir)
     {
-        std::ifstream file("C:/Users/mingh/Desktop/Work/pySat_OP/Data/TimeTab/TIMETAB.DAT");
-        std::vector<std::string> lines;
         std::string line;
-        
-        if (file.is_open())
+
+        if (file_.is_open())
         {
             std::stringstream buffer;
-            buffer << file.rdbuf();
+            buffer << file_.rdbuf();
 
-            while(std::getline(buffer, line)) 
+            while(std::getline(buffer, line))
             {
-                lines.push_back(line);
+                lines_.push_back(line);
             }
-            file.close();
-
+            file_.close();
+            return lines_
         }
+        else
+        {
+            //exception needs
+        }
+    }
+
+
+    std::vector<std::string> get_item_list(void)
+    {
+
     }
 }

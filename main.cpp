@@ -9,7 +9,7 @@
 //"C:/Users/mhlee/Desktop/Work/OrbitData/TimeTab/TIMETAB.DAT"
 int main() 
 {
-    std::ifstream file("C:/Users/mingh/Desktop/Work/pySat_OP/Data/TimeTab/TIMETAB.DAT");
+    std::ifstream file("G:/내 드라이브/src/OrbitData/TimeTab/TIMETAB.DAT");
     std::vector<std::string> lines;
     std::string line;
 
@@ -23,8 +23,17 @@ int main()
             lines.push_back(line);
         }
     file.close();
+    }
+
+    while(1)
+    {
+
 
     }
+
+
+
+
 
     // std::cout << "The size of int is: " << sizeof(int) << " bytes." << std::endl;
     return 0;

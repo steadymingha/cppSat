@@ -1,7 +1,9 @@
 #pragma once
 
-namespace propagator{
-    class FrameConverter{
+namespace propagator
+{
+    class FrameConverter
+    {
         public:
 
         FrameConverter();

@@ -3,9 +3,9 @@
 
 
 
-namespace propagator {
-    AstroEnvSetup::AstroEnvSetup() { //constructor
-    }
+namespace propagator
+{
+    AstroEnvSetup::AstroEnvSetup() {}
 
     astro_time = TimeConverter(const std::string& time_table_fdir);
     iers = FrameConverter(const std::string& time_table_fdir);
