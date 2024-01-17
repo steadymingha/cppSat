@@ -2,7 +2,7 @@
 
 namespace propagator
 {
-    ParameterParsing::ParameterParsing(const std::string& file_dir):file_(file_dir)
+    ParameterParsing::ParameterParsing(const std::string& file_dir):file_(file_dir), lines_()
     {
         std::string line;
 
@@ -16,7 +16,6 @@ namespace propagator
                 lines_.push_back(line);
             }
             file_.close();
-            return lines_
         }
         else
         {
@@ -25,8 +24,13 @@ namespace propagator
     }
 
 
-    std::vector<std::string> get_item_list(void)
+    void get_item_list(std::string& item_list)
     {
-
+        std::istringstream iss(line);
+        std::string token;
+        while (iss >> token)
+        {
+            item_list.push_back(token);
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace propagator {
         }
     };
 
-    TimeConverter::TimeConverter() : leap_cnt_(0), dut1_cnt_(0), prev_i_(0), i_cnt_limit_(20)
+    TimeConverter::TimeConverter() : leap_cnt_(0), dut1_cnt_(0), prev_i_(0), i_cnt_limit_(20),
     {}
 
     ErrorCode ReadLeadSecondFromIERS(const std::string &iers_fdir) {
@@ -21,9 +21,12 @@ namespace propagator {
         ParameterParsing parsed_data = ParameterParsing(iers_fdir);
 
         while(1)
-            {
+        {
+            std::string item_list;
+            parsed_data.get_item_list(item_list)
 
-            }
+
+        }
 
 
 

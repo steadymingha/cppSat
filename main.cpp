@@ -13,6 +13,8 @@ int main()
     std::vector<std::string> lines;
     std::string line;
 
+    std::vector<std::string> item_list;
+
     if (file.is_open())
     {
         std::stringstream buffer;
@@ -25,11 +27,30 @@ int main()
     file.close();
     }
 
-    while(1)
+    for (const auto& line : lines)
     {
+        std::istringstream iss(line);
+        std::string token;
+        while (iss >> token)
+        {
+            item_list.push_back(token);
+        }
+
+
+
+
+
+
 
 
     }
+
+
+//    while(1)
+//    {
+//
+//
+//    }
 
 
 
