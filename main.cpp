@@ -5,13 +5,15 @@
 #include <vector>
 #include <chrono>
 #include "Setup.hpp"
-
+#include <filesystem>
 //"C:/Users/mhlee/Desktop/Work/OrbitData/TimeTab/TIMETAB.DAT"
 int main() 
 {
-    std::ifstream file("G:/내 드라이브/src/OrbitData/TimeTab/TIMETAB.DAT");
+    std::ifstream file("../Data/TimeTab/TIMETAB.DAT");
     std::vector<std::string> lines;
     std::string line;
+    std::filesystem::path cwd = std::filesystem::current_path();
+    std::cout << "cwd: " << cwd << std::endl;
 
     if (file.is_open())
     {
@@ -24,7 +26,8 @@ int main()
         }
     file.close();
     }
-
+    int size_vec = lines.size();
+    std::cout << lines[2] << std::endl;
     while(1)
     {
 

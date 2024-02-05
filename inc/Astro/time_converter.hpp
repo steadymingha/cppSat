@@ -2,6 +2,7 @@
 
 #include "type_def.hpp"
 #include "error_code.hpp"
+#include "parser.hpp"
 
 namespace propagator{
     class TimeConverter{
