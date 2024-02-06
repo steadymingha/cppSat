@@ -25,19 +25,23 @@ namespace propagator
         else
         {
             throw std::out_of_range("file loading failed.");
-            //exception needs
         }
     }
 
 
-    std::vector<std::string> ParameterParsing::get_item_list(void)
+    void ParameterParsing::get_item_list(std::string& item_list)
     {
         static uint8_t i = 0;
-        std::vector<std::string> item_list;
-        item_list.push_back(lines_[i++]);
-        // wrongwrongwrongwrongwrongwrong
-        if(i >= lines_.size()) return item_list;
 
+        if (lines_[i].empty()) item_list.clear();
+        else if (lines_[i][0] == '#') item_list.clear();
+        else if(i >= lines_.size()) item_list.clear();
+        else
+        { //lambda function understanding
+            item_list = lines_[i++];
+            item_list.erase(std::remove_if(item_list.begin(), item_list.end(), [](unsigned char c) {
+                return std::isspace(c); }), item_list.end());
+        }
 
     }
 }

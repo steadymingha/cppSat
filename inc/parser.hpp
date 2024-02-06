@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 namespace propagator
 {
@@ -14,7 +15,7 @@ namespace propagator
         ParameterParsing(const std::string& file_dir);
         ~ParameterParsing();
 
-        void get_item_list(std::vector<std::string>& item_list);
+        void get_item_list(std::string& item_list);
 
         private:
 

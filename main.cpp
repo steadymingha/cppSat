@@ -7,7 +7,24 @@
 #include "Setup.hpp"
 #include <filesystem>
 //"C:/Users/mhlee/Desktop/Work/OrbitData/TimeTab/TIMETAB.DAT"
-int main() 
+//void get_item_list(std::string& item_list)
+//{
+//    static uint8_t i = 0;
+//
+//    if (lines_[i].empty()) item_list.clear();
+//    else if (lines_[i][0] == '#') item_list.clear();
+//    else if(i < lines_.size())
+//    {
+//        item_list = lines_[i++];
+//    }
+//    else
+//    {
+//
+//
+//        item_list.clear();
+//    }
+//}
+int main()
 {
     std::ifstream file("../Data/TimeTab/TIMETAB.DAT");
     std::vector<std::string> lines;

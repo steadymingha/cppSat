@@ -17,13 +17,13 @@ namespace propagator {
     {}
 
     ErrorCode ReadLeadSecondFromIERS(const std::string &iers_fdir) {
-        std::vector<std::string> item_list;
+        std::string item_list;
         ErrorCode r_status = ErrorCode::SUCCESS;
         ParameterParsing parsed_data = ParameterParsing(iers_fdir);
 
         while(1)
         {
-            item_list = parsed_data.get_item_list();
+            parsed_data.get_item_list(item_list);
 
 
         }
