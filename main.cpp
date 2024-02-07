@@ -6,24 +6,9 @@
 #include <chrono>
 #include "Setup.hpp"
 #include <filesystem>
-//"C:/Users/mhlee/Desktop/Work/OrbitData/TimeTab/TIMETAB.DAT"
-//void get_item_list(std::string& item_list)
-//{
-//    static uint8_t i = 0;
-//
-//    if (lines_[i].empty()) item_list.clear();
-//    else if (lines_[i][0] == '#') item_list.clear();
-//    else if(i < lines_.size())
-//    {
-//        item_list = lines_[i++];
-//    }
-//    else
-//    {
-//
-//
-//        item_list.clear();
-//    }
-//}
+
+#include "parser.hpp"
+
 int main()
 {
     std::ifstream file("../Data/TimeTab/TIMETAB.DAT");
@@ -31,25 +16,50 @@ int main()
     std::string line;
     std::filesystem::path cwd = std::filesystem::current_path();
     std::cout << "cwd: " << cwd << std::endl;
-
-    if (file.is_open())
-    {
-        std::stringstream buffer;
-        buffer << file.rdbuf();
-
-        while(std::getline(buffer, line)) 
-        {
-            lines.push_back(line);
-        }
-    file.close();
-    }
-    int size_vec = lines.size();
-    std::cout << lines[2] << std::endl;
-    while(1)
-    {
+    propagator::ParameterParsing parsed_data;
+//    std::string item_list;
+    std::string file_dir = "../Data/TimeTab/TIMETAB.DAT";
+//    propagator::ParameterParsing parsed_data(file_dir);
+//
+//    while(1)
+//    {
+//        parsed_data.get_item_list(item_list);
+//        if (item_list.empty()) break;
+//        std::cout << "item check : " << item_list[3] << std::endl;
+//        int test = 0;
+//
+//    }
 
 
-    }
+
+
+
+
+
+//    if (file.is_open())
+//    {
+//        std::stringstream buffer;
+//        buffer << file.rdbuf();
+//
+//        while(std::getline(buffer, line))
+//        {
+//            lines.push_back(line);
+//        }
+//    file.close();
+//    }
+//    int size_vec = lines.size();
+//    std::cout << lines[2] << std::endl;
+
+
+
+
+
+
+//    while(1)
+//    {
+//
+//
+//    }
 
 
 

@@ -2,7 +2,7 @@
 
 namespace propagator
 {
-    ParameterParsing::ParameterParsing(const std::string& file_dir)
+    ParameterParsing::ParameterParsing(const std::string& file_dir):file_(file_dir)
     {
         // parsed_data = ParameterParsing()
         // reader = open(iers_fpath)
