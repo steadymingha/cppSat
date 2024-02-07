@@ -2,7 +2,7 @@
 
 namespace propagator
 {
-    ParameterParsing::ParameterParsing(const std::string& file_dir):file_(file_dir)
+    ParameterParsing::ParameterParsing(const std::string& file_dir)
     {
         // parsed_data = ParameterParsing()
         // reader = open(iers_fpath)
@@ -33,9 +33,9 @@ namespace propagator
     {
         static uint8_t i = 0;
 
-        if (lines_[i].empty()) item_list.clear();
-        else if (lines_[i][0] == '#') item_list.clear();
-        else if(i >= lines_.size()) item_list.clear();
+        if (lines_[i++].empty()) item_list.clear();
+        else if (lines_[i++][0] == '#') item_list.clear();
+        else if(i >= lines_.size()) item_list.clear(); // read complete
         else
         { //lambda function understanding
             item_list = lines_[i++];
