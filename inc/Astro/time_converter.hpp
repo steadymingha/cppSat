@@ -8,7 +8,7 @@ namespace propagator{
     class TimeConverter{
         public:
             TimeConverter();
-            ~TimeConverter() = default;
+            ~TimeConverter() {}
 
             double GetDUT1(double dJD);
 

@@ -33,15 +33,17 @@ namespace propagator
     {
         static uint8_t i = 0;
 
-        if (lines_[i++].empty()) item_list.clear();
-        else if (lines_[i++][0] == '#') item_list.clear();
+        if (lines_[i].empty()) item_list.clear();
+        else if (lines_[i][0] == '#') item_list.clear();
         else if(i >= lines_.size()) item_list.clear(); // read complete
         else
         { //lambda function understanding
-            item_list = lines_[i++];
+            item_list = lines_[i];
             item_list.erase(std::remove_if(item_list.begin(), item_list.end(), [](unsigned char c) {
                 return std::isspace(c); }), item_list.end());
         }
+
+        i++;
 
     }
 }

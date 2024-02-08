@@ -10,7 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
 # set(ROOT_DIR "C:\\Users\\mingh\\Desktop\\Study\\src")
-set(ROOT_DIR "G:\\My Drive\\src")
+set(ROOT_DIR "G:\\내 드라이브\\src")
+#set(ROOT_DIR "G:\\My Drive\\src")
 
 set(BOOST_ROOT "${ROOT_DIR}\\lib\\boost_1_83_0\\")
 set(Boost_LIBRARY_DIR "${ROOT_DIR}\\lib\\boost_1_83_0\\stage\\lib")
@@ -36,9 +37,16 @@ enable_testing()
 #target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
 
 
-include_directories(${PROJECT_SOURCE_DIR}/inc)
+include_directories(${PROJECT_SOURCE_DIR}\\inc)
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
         ${CMAKE_SOURCE_DIR}/src/*.cpp)
+
+
+# SOURCE_FILES Find
+message("Included source files:")
+foreach(_source IN ITEMS ${SOURCE_FILES})
+    message("${_source}")
+endforeach()
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

@@ -10,7 +10,7 @@ namespace propagator {
 
         ErrorCode status = ErrorCode::SUCCESS;
 
-        status = Astro
+//        status = Astro
 
 
 

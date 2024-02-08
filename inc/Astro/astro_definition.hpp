@@ -7,15 +7,25 @@
 namespace propagator{
     class AstroEnvSetup{
         public:
+        static AstroEnvSetup& getInstance()
+        {
+            static AstroEnvSetup astro;
+            return astro;
+        }
 
+        AstroEnvSetup(const AstroEnvSetup&) = delete;
+        AstroEnvSetup& operator=(const AstroEnvSetup&) = delete;
+
+        TimeConverter astro_time;
+        FrameConverter iers;
+        PlanetEphemeris de405;
+
+    private:
         AstroEnvSetup();
-        ~AstroEnvSetup() = default;
-
-        static TimeConverter astro_time;
-        static FrameConverter iers;
-        static PlanetEphemeris de405;
+        ~AstroEnvSetup() {}
 
     };
 
 }
-
+//Singleton implemention
+//https://hwan-shell.tistory.com/227
