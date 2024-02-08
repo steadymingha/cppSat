@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
 # set(ROOT_DIR "C:\\Users\\mingh\\Desktop\\Study\\src")
-set(ROOT_DIR "G:\\내 드라이브\\src")
+set(ROOT_DIR "G:\\My Drive\\src")
 
 set(BOOST_ROOT "${ROOT_DIR}\\lib\\boost_1_83_0\\")
 set(Boost_LIBRARY_DIR "${ROOT_DIR}\\lib\\boost_1_83_0\\stage\\lib")
@@ -20,11 +20,11 @@ include_directories(${Boost_INCLUDE_DIR})
 
 
 include_directories("${ROOT_DIR}\\lib\\eigen-3.4.0\\")
-include_directories("${PROJECT_SOURCE_DIR}\\inc"})
+include_directories("${PROJECT_SOURCE_DIR}\\inc")
 
 link_directories(${Boost_LIBRARY_DIR})
 
-add_definitions( -DBOOST_ALL_NO_LIB )
+#add_definitions( -DBOOST_ALL_NO_LIB )
 set( Boost_USE_STATIC_LIBS ON )
 
 
@@ -32,7 +32,13 @@ set( Boost_USE_STATIC_LIBS ON )
 enable_testing()
 
 
-add_executable(cpp_pySat main.cpp)# Astro/time_converter.cpp)# Setup.cpp Setup.h)
-target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
+#add_executable(cpp_pySat main.cpp)# Astro/time_converter.cpp)# Setup.cpp Setup.h)
+#target_link_libraries(cpp_pySat ${BOOST_LIBRARIES})
 
 
+include_directories(${PROJECT_SOURCE_DIR}/inc)
+
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
+        ${CMAKE_SOURCE_DIR}/src/*.cpp)
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})

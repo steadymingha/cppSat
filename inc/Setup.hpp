@@ -10,7 +10,7 @@ namespace propagator
         public:
 
         SetupConfig();
-        ~SetupConfig();
+        ~SetupConfig() = default;
     };
 
 }

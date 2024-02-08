@@ -16,10 +16,10 @@ int main()
     std::string line;
     std::filesystem::path cwd = std::filesystem::current_path();
     std::cout << "cwd: " << cwd << std::endl;
-    propagator::ParameterParsing parsed_data;
+//    propagator::ParameterParsing parsed_data;
 //    std::string item_list;
     std::string file_dir = "../Data/TimeTab/TIMETAB.DAT";
-//    propagator::ParameterParsing parsed_data(file_dir);
+    propagator::ParameterParsing parsed_data(file_dir);
 //
 //    while(1)
 //    {

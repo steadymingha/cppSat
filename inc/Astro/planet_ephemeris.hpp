@@ -5,7 +5,7 @@ namespace propagator{
         public:
 
         PlanetEphemeris();
-        ~PlanetEphemeris();
+        ~PlanetEphemeris() = default;
 
     };
 }

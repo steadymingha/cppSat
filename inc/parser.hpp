@@ -13,7 +13,7 @@ namespace propagator
         public:
 
         ParameterParsing(const std::string& file_dir);
-        ~ParameterParsing();
+        ~ParameterParsing() = default;
 
         void get_item_list(std::string& item_list);
 

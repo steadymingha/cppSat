@@ -9,7 +9,7 @@ namespace propagator{
         public:
 
         AstroEnvSetup();
-        ~AstroEnvSetup();
+        ~AstroEnvSetup() = default;
 
         static TimeConverter astro_time;
         static FrameConverter iers;

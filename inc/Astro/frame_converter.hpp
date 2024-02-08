@@ -8,7 +8,7 @@ namespace propagator
         public:
 
         FrameConverter();
-        ~FrameConverter();
+        ~FrameConverter() = default;
 
     };
 }
