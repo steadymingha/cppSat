@@ -10,8 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set(ROOT_DIR "C:\\Users\\mhlee\\Desktop\\src")
 # set(ROOT_DIR "C:\\Users\\mingh\\Desktop\\Study\\src")
-set(ROOT_DIR "G:\\내 드라이브\\src")
-#set(ROOT_DIR "G:\\My Drive\\src")
+#set(ROOT_DIR "G:\\내 드라이브\\src")
+set(ROOT_DIR "G:\\My Drive\\src")
 
 set(BOOST_ROOT "${ROOT_DIR}\\lib\\boost_1_83_0\\")
 set(Boost_LIBRARY_DIR "${ROOT_DIR}\\lib\\boost_1_83_0\\stage\\lib")

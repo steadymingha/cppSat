@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "type_def.hpp"
 #include "error_code.hpp"
 #include "parser.hpp"
@@ -26,6 +27,8 @@ namespace propagator{
             uint16_t dut1_cnt_;
             uint16_t prev_i_;
             uint8_t i_cnt_limit_;
+
+            std::vector<double> leap_second_jd_;
 
 
         };

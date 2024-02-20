@@ -29,21 +29,58 @@ namespace propagator
     }
 
 
-    void ParameterParsing::get_item_list(std::string& item_list)
+    void ParameterParsing::get_item_list(std::vector<std::string>& item_list)
     {
         static uint8_t i = 0;
+        item_list.clear();
 
-        if (lines_[i].empty()) item_list.clear();
-        else if (lines_[i][0] == '#') item_list.clear();
-        else if(i >= lines_.size()) item_list.clear(); // read complete
+        if (lines_.empty()) {}// no data
+        else if(i >= lines_.size()) i = 0;// read complete
+        else if (lines_[i][0] == '#') {}
         else
-        { //lambda function understanding
-            item_list = lines_[i];
-            item_list.erase(std::remove_if(item_list.begin(), item_list.end(), [](unsigned char c) {
-                return std::isspace(c); }), item_list.end());
+        {
+            std::istringstream iss(lines_[i]);
+            std::string item;
+            while (iss >> item)
+            {
+                item_list.push_back(item);
+            }
+            i++;
+
         }
 
-        i++;
+
+
+
+
+
+
+
+//        if (lines_.empty()) item_list.clear();// no data
+//        else if(i >= lines_.size())
+//        {
+//            item_list.clear(); // read complete
+//            i = 0;
+//        }
+//        else if (lines_[i][0] == '#')
+//        {
+//            item_list.clear();
+//            i = 0;
+//        }
+//        else
+//        {
+//            std::istringstream iss(lines_[i]);
+//            std::string item;
+//            while (iss >> item)
+//            {
+//                item_list.push_back(item);
+//            }
+////            item_list.erase(std::remove_if(item_list.begin(), item_list.end(), [](unsigned char c) {
+////                return std::isspace(c); }), item_list.end());
+//            i++;
+//
+//        }
+
 
     }
 }
