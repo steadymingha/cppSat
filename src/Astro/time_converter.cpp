@@ -35,6 +35,7 @@ namespace propagator
                 uint16_t eop_cnt = std::stoi(item_list[1]);
                 if (eop_cnt <= 0) return ErrorCode::ERROR_NO_EARTH_ORIENTATION_PARAMETER_IN_IERS_FILE;
                 dut1_table_.resize(eop_cnt);
+
                 for (int i = 0; i < eop_cnt; i++) {
                     parsed_data.get_item_list(item_list);
                     dut1_table_[i].jd = std::stod(item_list[1]);

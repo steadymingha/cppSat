@@ -1,5 +1,5 @@
 #include <string>
-#include "Setup.hpp"  // 헤더 파일 포함
+#include "Setup.hpp"
 
 
 namespace propagator {
@@ -10,7 +10,9 @@ namespace propagator {
 
         ErrorCode status = ErrorCode::SUCCESS;
 
-//        status = Astro
+
+
+
 
 
 

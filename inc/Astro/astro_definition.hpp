@@ -18,7 +18,7 @@ namespace propagator{
 
         TimeConverter astro_time;
         FrameConverter iers;
-        PlanetEphemeris de405;
+        PlanetEphemeris de4xx;
 
     private:
         AstroEnvSetup();
