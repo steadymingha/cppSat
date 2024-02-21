@@ -21,18 +21,6 @@ namespace propagator{
             JD_t TDBJDToUTCJD(double jd);
             JD_t TTJDToUTCJD(double jd);
 
-//            struct Dut1LUT
-//            {
-//                double jd = 0.0;
-//                double dut1 = 0.0;
-//
-//                static Dut1LUT &getInstance()
-//                {
-//                    static Dut1LUT instance;
-//                    return instance;
-//                }
-//            };
-
 
         private:
             uint8_t leap_cnt_;
@@ -45,16 +33,15 @@ namespace propagator{
                 double jd = 0.0;
                 double dut1 = 0.0;
 
-                static Dut1LUT &getInstance()
-                {
-                    static Dut1LUT instance;
-                    return instance;
-                }
+//                static Dut1LUT &getInstance()
+//                {
+//                    static Dut1LUT instance;
+//                    return instance;
+//                }
             };
 
             std::vector<double> leap_second_jd_;
-            std::vector<Dut1LUT> dut1_table_;
-        std::vector<Dut1LUT> myVector(10);
+            std::vector<Dut1LUT> dut1_table_; // struct array
 
 
 

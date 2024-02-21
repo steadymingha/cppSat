@@ -13,8 +13,7 @@ namespace propagator
         ErrorCode r_status = ErrorCode::SUCCESS;
         ParameterParsing parsed_data(iers_fdir);
 
-        while (1)
-        {
+        while (1) {
             parsed_data.get_item_list(item_list);
             if (item_list.empty()) break;
             if (item_list[0] == "TAIUTC") //check header for TAI-UTC
@@ -24,49 +23,27 @@ namespace propagator
                 if (leap_cnt <= 0) return ErrorCode::ERROR_NO_LEAP_SECOND_INFO_IN_IERS_FILE;
 
                 parsed_data.get_item_list(item_list);
-                for (int i = 0; i < leap_cnt; i++)
-                {
+                for (int i = 0; i < leap_cnt; i++) {
                     parsed_data.get_item_list(item_list);
                     leap_second_jd_.push_back(std::stod(item_list[3]));
                 }
 
                 leap_cnt_ = leap_cnt;
 
-            }
-            else if (item_list[0] == "UT1UTC/XY") // UT1-UTC data parsing
+            } else if (item_list[0] == "UT1UTC/XY") // UT1-UTC data parsing
             {
                 uint16_t eop_cnt = std::stoi(item_list[1]);
                 if (eop_cnt <= 0) return ErrorCode::ERROR_NO_EARTH_ORIENTATION_PARAMETER_IN_IERS_FILE;
-                Dut1LUT dut1_table_(eop_cnt);
-
-
-
-
-
-
-
-
-
-
-                parsed_data.get_item_list(item_list); // skip TAI-UTC first data
-                for (int i = 0; i < leap_cnt; i++)
-                {
+                dut1_table_.resize(eop_cnt);
+                for (int i = 0; i < eop_cnt; i++) {
                     parsed_data.get_item_list(item_list);
-                    leap_second_jd_.push_back(std::stod(item_list[3]));
+                    dut1_table_[i].jd = std::stod(item_list[1]);
+                    dut1_table_[i].dut1 = std::stod(item_list[2]);
                 }
 
-            }
-            if (item_list[0] == "UT1UTC/XY")
-            {
-
-
+                dut1_cnt_ = eop_cnt;
 
             }
-
-
-
-
-
         }
         return r_status;
 

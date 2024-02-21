@@ -8,33 +8,35 @@
 #include <filesystem>
 
 #include "parser.hpp"
+//#include "error_code.hpp"
 
 int main()
 {
-//    std::ifstream file("../Data/TimeTab/TIMETAB.DAT");
     std::vector<std::string> lines;
     std::string line;
     std::filesystem::path cwd = std::filesystem::current_path();
     std::cout << "cwd: " << cwd << std::endl;
     std::vector<std::string> item_list;
+//    propagator::ParameterParsing parsed_data(file_dir);
+
+    propagator::TimeConverter astro_time;
     std::string file_dir = "../Data/TimeTab/TIMETAB.DAT";
-    propagator::ParameterParsing parsed_data(file_dir);
+    propagator::ErrorCode r_status = propagator::ErrorCode::SUCCESS;
+//    while(1)
+//    {
 
-    while(1)
-    {
-        parsed_data.get_item_list(item_list);
-//        if (item_list[0] == '800815')
-//        {
-//            int test = 0;
-//        }
-        if (item_list.empty()) {
-            break;
-        }
+        r_status = astro_time.ReadLeapSecondFromIERS(file_dir);
+        if (r_status ==  propagator::ErrorCode::SUCCESS) return 0;
 
-        std::cout << "item check : " << item_list[0] << std::endl;
-        int test = 0;
+//        parsed_data.get_item_list(item_list);
+//        if (item_list.empty()) {
+//            break;
 //        }
-    }
+//
+//        std::cout << "item check : " << item_list[0] << std::endl;
+//        int test = 0;
+////        }
+//    }
 
 
 
@@ -59,19 +61,6 @@ int main()
 
 
 
-
-
-//    while(1)
-//    {
-//
-//
-//    }
-
-
-
-
-
-    // std::cout << "The size of int is: " << sizeof(int) << " bytes." << std::endl;
     return 0;
 
 
