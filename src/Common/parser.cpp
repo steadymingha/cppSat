@@ -1,4 +1,5 @@
 #include "parser.hpp"
+#include "stdio.h"
 
 namespace propagator
 {
@@ -24,6 +25,7 @@ namespace propagator
         }
         else
         {
+            // if file name includes xx, Errorcode
             throw std::out_of_range("file loading failed.");
         }
     }
@@ -31,7 +33,7 @@ namespace propagator
 
     void ParameterParsing::get_item_list(std::vector<std::string>& item_list)
     {
-        static uint8_t i = 0;
+        static uint16_t i = 0;
         item_list.clear();
 
         if (lines_.empty()) {}// no data

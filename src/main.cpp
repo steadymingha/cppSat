@@ -17,12 +17,16 @@ int main()
     std::filesystem::path cwd = std::filesystem::current_path();
     std::cout << "cwd: " << cwd << std::endl;
     std::vector<std::string> item_list;
-    std::string file_dir = "../Data/TimeTab/test.DAT";
+    std::string file_dir = "../Data/TimeTab/TIMETAB.DAT";
     propagator::ParameterParsing parsed_data(file_dir);
 
     while(1)
     {
         parsed_data.get_item_list(item_list);
+//        if (item_list[0] == '800815')
+//        {
+//            int test = 0;
+//        }
         if (item_list.empty()) {
             break;
         }

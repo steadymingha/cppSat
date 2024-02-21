@@ -4,18 +4,6 @@
 namespace propagator
 {
 
-    struct DUT1LUT
-    {
-        double JD = 0.0;
-        double DUT1;
-
-        static DUT1LUT &getInstance()
-        {
-            static DUT1LUT instance;
-            return instance;
-        }
-    };
-
     TimeConverter::TimeConverter() : leap_cnt_(0), dut1_cnt_(0), prev_i_(0), i_cnt_limit_(20), leap_second_jd_(leap_cnt_)
     {}
 
@@ -24,29 +12,54 @@ namespace propagator
         std::vector<std::string> item_list;
         ErrorCode r_status = ErrorCode::SUCCESS;
         ParameterParsing parsed_data(iers_fdir);
-        bool tai_utc_flag = false;
 
         while (1)
         {
             parsed_data.get_item_list(item_list);
             if (item_list.empty()) break;
-            if (item_list[0] == "TAIUTC")
+            if (item_list[0] == "TAIUTC") //check header for TAI-UTC
             {
-                tai_utc_flag = true;
-                leap_cnt_ = std::stoi(item_list[1]);
-                leap_cnt_ -= 1;
-                if (leap_cnt_ <= 0) return ErrorCode::ERROR_NO_LEAP_SECOND_INFO_IN_IERS_FILE;
+                uint8_t leap_cnt = std::stoi(item_list[1]);
+                leap_cnt -= 1;
+                if (leap_cnt <= 0) return ErrorCode::ERROR_NO_LEAP_SECOND_INFO_IN_IERS_FILE;
 
                 parsed_data.get_item_list(item_list);
-            }
-            else if (tai_utc_flag) // TAIUTC data parsing
-            {
-                parsed_data.get_item_list(item_list); // skip TAI-UTC first data
-                for (int i=0; i<leap_cnt_; i++)
+                for (int i = 0; i < leap_cnt; i++)
                 {
                     parsed_data.get_item_list(item_list);
                     leap_second_jd_.push_back(std::stod(item_list[3]));
                 }
+
+                leap_cnt_ = leap_cnt;
+
+            }
+            else if (item_list[0] == "UT1UTC/XY") // UT1-UTC data parsing
+            {
+                uint16_t eop_cnt = std::stoi(item_list[1]);
+                if (eop_cnt <= 0) return ErrorCode::ERROR_NO_EARTH_ORIENTATION_PARAMETER_IN_IERS_FILE;
+                Dut1LUT dut1_table_(eop_cnt);
+
+
+
+
+
+
+
+
+
+
+                parsed_data.get_item_list(item_list); // skip TAI-UTC first data
+                for (int i = 0; i < leap_cnt; i++)
+                {
+                    parsed_data.get_item_list(item_list);
+                    leap_second_jd_.push_back(std::stod(item_list[3]));
+                }
+
+            }
+            if (item_list[0] == "UT1UTC/XY")
+            {
+
+
 
             }
 
@@ -82,8 +95,8 @@ namespace propagator
 //        std::istringstream iss(line);
 //        std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
 //                                        std::istream_iterator<std::string>{}};
-//        DUT1LUT::getInstance().JD = std::stod(tokens[0]);
-//        DUT1LUT::getInstance().DUT1 = std::stod(tokens[1]);
+//        Dut1LUT::getInstance().jd = std::stod(tokens[0]);
+//        Dut1LUT::getInstance().dut1 = std::stod(tokens[1]);
 //        return ErrorCode::SUCCESS;
     }
 
