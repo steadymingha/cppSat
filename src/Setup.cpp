@@ -5,8 +5,16 @@
 namespace propagator {
     void SetupConfig() {
         //TODO : need to be replaced
-        std::string time_table_fdir = "Astro/time_table.txt";
-        std::string ephem_fdir = "Astro/ephem.txt";
+        const std::string time_table_fdir = "Astro/time_table.txt";
+        const std::string ephem_fdir = "Astro/ephem.txt";
+
+        bool status;
+
+//        status = AstroEnvSetup::getInstance()->astro_time.ReadLeapSecondFromIERS()
+        AstroEnvSetup* AstroEnvSetup::getInstance()
+
+
+
 
         ErrorCode status = ErrorCode::SUCCESS;
 
