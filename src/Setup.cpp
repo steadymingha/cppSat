@@ -3,17 +3,16 @@
 
 
 namespace propagator {
-    void SetupConfig() {
+    SetupConfig::SetupConfig() {
         //TODO : need to be replaced
-        const std::string time_table_fdir = "Astro/time_table.txt";
-        const std::string ephem_fdir = "Astro/ephem.txt";
+        const std::string time_table_fdir = "Data/TimeTab/TIMETAB.DAT";
+        const std::string ephem_fdir = "Data/DE405";
 
-        bool status;
 
         AstroEnvSetup& setup = AstroEnvSetup::getInstance();
 
         setup.AstroTime().ReadLeapSecondFromIERS(time_table_fdir);
-        setup.EarthRotation().Re...
+//        setup.EarthRotation().Re...
 
 
 
