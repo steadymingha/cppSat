@@ -10,8 +10,12 @@ namespace propagator {
 
         bool status;
 
-//        status = AstroEnvSetup::getInstance()->astro_time.ReadLeapSecondFromIERS()
-        AstroEnvSetup* AstroEnvSetup::getInstance()
+        AstroEnvSetup& setup = AstroEnvSetup::getInstance();
+
+        setup.AstroTime().ReadLeapSecondFromIERS(time_table_fdir);
+        setup.EarthRotation().Re...
+
+
 
 
 

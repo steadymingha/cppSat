@@ -5,13 +5,31 @@
 
 namespace propagator
 {
-    AstroEnvSetup::AstroEnvSetup()//const std::string &time_table_fdir, const std::string &ephem_fdir)
+    AstroEnvSetup::AstroEnvSetup()
+    {}
+    AstroEnvSetup& AstroEnvSetup::getInstance()
     {
-        astro_time = TimeConverter(); //const std::string& time_table_fdir);
-        iers = FrameConverter();      //const std::string& time_table_fdir);
-        de4xx = PlanetEphemeris();    //const std::string& ephem_fdir);
+        static AstroEnvSetup astro;
+        return astro;
+    }
 
 
+
+    // delegate methods for astro time, iers, de405 member objects
+
+    TimeConverter& AstroEnvSetup::AstroTime()
+    {
+        return astro_time_;
+    }
+
+    FrameConverter& AstroEnvSetup::EarthRotation()
+    {
+        return iers_;
+    }
+
+    PlanetEphemeris& AstroEnvSetup::NbodyEphemeris()
+    {
+        return de4xx_;
     }
 
 }
