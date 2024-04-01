@@ -13,7 +13,7 @@ namespace propagator
         ErrorCode r_status = ErrorCode::SUCCESS;
         ParameterParsing parsed_data(iers_fdir);
 
-        while (1) {
+        while (true) {
             parsed_data.get_item_list(item_list);
             if (item_list.empty()) break;
             if (item_list[0] == "TAIUTC") //check header for TAI-UTC
