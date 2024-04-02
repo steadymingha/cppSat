@@ -138,7 +138,7 @@ namespace propagator
 //                {
 //                    //nothing
 //                }
-                polar_motion_.resize(eop_cnt)
+                polar_motion_.resize(eop_cnt);
             }
         }
 

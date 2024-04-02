@@ -11,13 +11,17 @@
 #include "error_code.hpp"
 //#include "error_code.hpp"
 #include <Eigen/Dense>
+#include "Astro/time_converter.hpp"
+
 int main()
 {
-    Eigen::VectorXd vec(5); // 5개의 원소를 가진 벡터, double형
-    vec << 1, 2, 3, 4, 5;
+    propagator::TimeConverter timeconv;
+    propagator::ErrorCode status;
+    status = timeconv.ReadLeapSecondFromIERS("../Data/TimeTab/TIMETAB.DAT");
+    std::cout << "hello" << std::endl;
+    int test = 0
 
-    // 벡터 출력
-    std::cout << "vec: " << vec.transpose() << std::endl;
+
 
 
 

@@ -50,33 +50,6 @@ namespace propagator
         return r_status;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        std::ifstream iers(iers_fdir);
-//        if (!iers.is_open()) {
-//            std::cout << "Error opening file";
-//            exit(1);
-//        }
-//        std::string line;
-//        std::getline(iers, line);
-//        std::istringstream iss(line);
-//        std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
-//                                        std::istream_iterator<std::string>{}};
-//        Dut1LUT::getInstance().jd = std::stod(tokens[0]);
-//        Dut1LUT::getInstance().dut1 = std::stod(tokens[1]);
-//        return ErrorCode::SUCCESS;
     }
 
 
@@ -85,22 +58,5 @@ namespace propagator
 
 
 
-//        std::string& time_table_fdir
-
-
-
-
-
-
-//        std::ifstream time_table(time_table_fdir);
-//        if (!time_table.is_open()) {
-//            std::cout << "Error opening file";
-//            exit(1);
-//        }
-//        std::string line;
-//        std::getline(time_table, line);
-//        std::istringstream iss(line);
-//        std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
-//                                        std::istream_iterator<std::string>{}};
 
 

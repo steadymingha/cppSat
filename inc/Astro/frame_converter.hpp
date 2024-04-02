@@ -3,7 +3,6 @@
 #include <Eigen/Dense>
 #include "error_code.hpp"
 #include "parser.hpp"
-#include "astro_definition.hpp"
 
 namespace propagator{
     class FrameConverter{
