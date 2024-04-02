@@ -7,24 +7,24 @@
 namespace propagator{
     class AstroEnvSetup{
         public:
-        static AstroEnvSetup& getInstance();
+            static AstroEnvSetup& getInstance();
 
 
-        AstroEnvSetup(const AstroEnvSetup&) = delete;
-        AstroEnvSetup& operator=(const AstroEnvSetup&) = delete;
+            AstroEnvSetup(const AstroEnvSetup&) = delete;
+            AstroEnvSetup& operator=(const AstroEnvSetup&) = delete;
 
-        TimeConverter& AstroTime();
-        FrameConverter& EarthRotation();
-        PlanetEphemeris&  NbodyEphemeris();
+            TimeConverter& AstroTime();
+            FrameConverter& EarthRotation();
+            PlanetEphemeris&  NbodyEphemeris();
 
 
-    private:
-        AstroEnvSetup();
-        ~AstroEnvSetup() {}
+        private:
+            explicit AstroEnvSetup(TimeConverter& astro_time);
+            ~AstroEnvSetup() {}
 
-        TimeConverter astro_time_;
-        FrameConverter iers_;
-        PlanetEphemeris de4xx_;
+            TimeConverter& astro_time_;
+            FrameConverter iers_;
+            PlanetEphemeris de4xx_;
 
 
     };

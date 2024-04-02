@@ -8,8 +8,10 @@
 namespace propagator{
     class TimeConverter{
         public:
-            TimeConverter();
-            ~TimeConverter() {}
+            static TimeConverter& getInstance();
+            TimeConverter(const TimeConverter&) = delete;
+            TimeConverter& operator=(const TimeConverter&) = delete;
+
 
             double GetDUT1(double dJD);
 
@@ -23,6 +25,9 @@ namespace propagator{
 
 
         private:
+            TimeConverter();
+            ~TimeConverter() {}
+
             uint8_t leap_cnt_;
             uint16_t dut1_cnt_;
             uint16_t prev_i_;

@@ -5,6 +5,7 @@ namespace propagator
     FrameConverter::FrameConverter() : prev_i_polar_motion_(0),
                                        lunar_solar_elements_(5),
                                        current_jd_(0.0)
+
     {
         nutation_table_ <<
 
@@ -121,8 +122,8 @@ namespace propagator
     {
         std::vector<std::string> item_list;
 
-        AstroEnvSetup& setup = AstroEnvSetup::getInstance();
-        ErrorCode r_status = setup.AstroTime().ReadLeapSecondFromIERS(iers_fdir);
+        TimeConverter& time_setup = TimeConverter::getInstance();
+        ErrorCode r_status = time_setup.ReadLeapSecondFromIERS(iers_fdir);
         if (r_status != ErrorCode::SUCCESS) return r_status;
 
         ParameterParsing parsed_data(iers_fdir);
@@ -133,15 +134,24 @@ namespace propagator
             if (item_list.empty()) break;
             if (item_list[0] == "UT1UTC/XY")
             {
-                uint8_t eop_cnt = std::stoi(item_list[1]);
-//                if (eop_cnt <= 0)
+                uint16_t eop_cnt = std::stoi(item_list[1]);
+                if (eop_cnt <= 0) return ErrorCode::ERROR_NO_EARTH_ORIENTATION_PARAMETER_IN_IERS_FILE;
 //                {
-//                    //nothing
+//                    //throw error message!!
 //                }
                 polar_motion_.resize(eop_cnt);
+                for (int i = 0; i < eop_cnt; i++)
+                {
+                    parsed_data.get_item_list(item_list);
+                    polar_motion_[i].jd_ = std::stod(item_list[1]);
+                    polar_motion_[i].xp_ = std::stod(item_list[3]) * sim_param::arcsec2rad;
+                    polar_motion_[i].yp_ = std::stod(item_list[4]) * sim_param::arcsec2rad;
+                }
+                num_polar_motion_entries_ = eop_cnt;
+
             }
         }
-
+        return r_status;
 
     }
 }

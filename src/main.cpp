@@ -19,7 +19,7 @@ int main()
     propagator::ErrorCode status;
     status = timeconv.ReadLeapSecondFromIERS("../Data/TimeTab/TIMETAB.DAT");
     std::cout << "hello" << std::endl;
-    int test = 0
+    int test = 0;
 
 
 

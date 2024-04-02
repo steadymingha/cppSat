@@ -1,0 +1,3 @@
+astro_definition.cpp
+AstroEnvSetup 생성자 부분(l8~9) :
+//TimeConverter& 타입의 객체를 astro_time으로 외부에서 받아서 astro_time_ 멤버변수로 초기화 시키고 AstroTime()로 get 하기

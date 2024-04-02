@@ -4,6 +4,9 @@
 #include "error_code.hpp"
 #include "parser.hpp"
 
+#include "Astro/time_converter.hpp"
+#include "orbit_sim_def.hpp"
+
 namespace propagator{
     class FrameConverter{
         public:
@@ -14,18 +17,19 @@ namespace propagator{
 
         private:
             uint16_t prev_i_polar_motion_;
-            double current_jd_;
+            uint16_t num_polar_motion_entries_;
+            double_t current_jd_;
             Eigen::VectorXd lunar_solar_elements_;
 
             struct PolarMotionTable
             {
-                double jd_ = 0.0;
-                double xp_ = 0.0;
-                double yp_ = 0.0;
+                double_t jd_ = 0.0;
+                double_t xp_ = 0.0;
+                double_t yp_ = 0.0;
             };
 
             std::vector<PolarMotionTable> polar_motion_;
-            Eigen::Matrix<double, 106,9> nutation_table_;
+            Eigen::Matrix<double_t, 106,9> nutation_table_;
 
 
 

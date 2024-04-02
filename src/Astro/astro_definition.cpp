@@ -5,15 +5,13 @@
 
 namespace propagator
 {
-    AstroEnvSetup::AstroEnvSetup()
+    AstroEnvSetup::AstroEnvSetup(TimeConverter& astro_time) : astro_time_(astro_time)
     {}
     AstroEnvSetup& AstroEnvSetup::getInstance()
     {
-        static AstroEnvSetup astro;
+        static AstroEnvSetup astro(TimeConverter::getInstance());
         return astro;
     }
-
-
 
     // delegate methods for astro time, iers, de405 member objects
 

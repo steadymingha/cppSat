@@ -7,6 +7,12 @@ namespace propagator
     TimeConverter::TimeConverter() : leap_cnt_(0), dut1_cnt_(0), prev_i_(0), i_cnt_limit_(20), leap_second_jd_(leap_cnt_)
     {}
 
+    TimeConverter& TimeConverter::getInstance()
+    {
+        static TimeConverter astro_time;
+        return astro_time;
+    }
+
     ErrorCode TimeConverter::ReadLeapSecondFromIERS(const std::string &iers_fdir)
     {
         std::vector<std::string> item_list;
@@ -37,7 +43,8 @@ namespace propagator
                 if (eop_cnt <= 0) return ErrorCode::ERROR_NO_EARTH_ORIENTATION_PARAMETER_IN_IERS_FILE;
                 dut1_table_.resize(eop_cnt);
 
-                for (int i = 0; i < eop_cnt; i++) {
+                for (int i = 0; i < eop_cnt; i++)
+                {
                     parsed_data.get_item_list(item_list);
                     dut1_table_[i].jd = std::stod(item_list[1]);
                     dut1_table_[i].dut1 = std::stod(item_list[2]);
@@ -49,10 +56,7 @@ namespace propagator
         }
         return r_status;
 
-
     }
-
-
 }
 
 

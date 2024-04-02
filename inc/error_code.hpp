@@ -1,8 +1,9 @@
 #pragma once
 
-namespace propagator{
-    enum class ErrorCode{
-
+namespace propagator
+{
+    enum class ErrorCode
+    {
         SUCCESS,
 
         ERROR_UNDEFINED_SATELLITE_CODE,
