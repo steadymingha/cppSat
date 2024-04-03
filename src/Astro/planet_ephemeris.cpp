@@ -5,6 +5,11 @@ namespace propagator
     PlanetEphemeris::PlanetEphemeris()
     {}
 
+    PlanetEphemeris::ReadPlanetInfoFromDE4xx()
+    {
+
+    }
+
 
 
 }

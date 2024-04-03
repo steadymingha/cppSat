@@ -26,7 +26,7 @@ namespace propagator
         else
         {
             // if file name includes xx, Errorcode
-            throw std::out_of_range("file loading failed.");
+            throw std::out_of_range("file name or address is incorrect~");
         }
     }
 

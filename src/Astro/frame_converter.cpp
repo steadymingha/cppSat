@@ -7,6 +7,9 @@ namespace propagator
                                        current_jd_(0.0)
 
     {
+        TimeConverter& time_setup = TimeConverter::getInstance();
+
+
         nutation_table_ <<
 
           0,  0,  0,  0,  1, -171996, -1742, 92025,   89,
@@ -122,9 +125,6 @@ namespace propagator
     {
         std::vector<std::string> item_list;
 
-        TimeConverter& time_setup = TimeConverter::getInstance();
-        ErrorCode r_status = time_setup.ReadLeapSecondFromIERS(iers_fdir);
-        if (r_status != ErrorCode::SUCCESS) return r_status;
 
         ParameterParsing parsed_data(iers_fdir);
 
@@ -151,7 +151,7 @@ namespace propagator
 
             }
         }
-        return r_status;
+        return ErrorCode::SUCCESS;
 
     }
 }

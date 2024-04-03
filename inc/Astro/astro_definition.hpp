@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Astro/time_converter.hpp"
 #include "Astro/frame_converter.hpp"
 #include "Astro/planet_ephemeris.hpp"
 
@@ -8,8 +7,6 @@ namespace propagator{
     class AstroEnvSetup{
         public:
             static AstroEnvSetup& getInstance();
-
-
             AstroEnvSetup(const AstroEnvSetup&) = delete;
             AstroEnvSetup& operator=(const AstroEnvSetup&) = delete;
 

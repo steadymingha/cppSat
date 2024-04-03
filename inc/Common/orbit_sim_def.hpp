@@ -20,10 +20,11 @@ namespace propagator
         constexpr uint8_t num_integrators = 4;
         constexpr uint8_t num_coordinate_systems = 7;
         constexpr uint8_t num_modeling_type = 7;
-        const char* integrator_name[] = { "ADAMS-MOULTON", "RUNGE-KUTTA-78", "RUNGE-KUTTA-45", "RUNGE-KUTTA-4" };
-        const char* coordinate_system_name[] = { "ICRS", "J2000","TOD", "MOD", "TPTRS", "ECEF", "TEMED" };
-        const char* modeling_type_name[] = { "WGS_72", "WGS_84" };
-
+        // check
+        constexpr const char* integrator_name[] = { "ADAMS-MOULTON", "RUNGE-KUTTA-78", "RUNGE-KUTTA-45", "RUNGE-KUTTA-4" };
+        constexpr const char* coordinate_system_name[] = { "ICRS", "J2000","TOD", "MOD", "TPTRS", "ECEF", "TEMED" };
+        constexpr const char* modeling_type_name[] = { "WGS_72", "WGS_84" };
+        // check
         constexpr uint8_t progress = 0;
         constexpr double xmu = 3.986005e5;
 

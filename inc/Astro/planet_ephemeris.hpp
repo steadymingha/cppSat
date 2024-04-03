@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Eigen/Dense>
+
 #include "error_code.hpp"
 #include "parser.hpp"
 
@@ -9,8 +11,15 @@ namespace propagator
     {
         public:
 
-        PlanetEphemeris();
-        ~PlanetEphemeris() = default;
+            PlanetEphemeris();
+            ~PlanetEphemeris() = default;
+
+
+        private:
+            Eigen::Vector
+
+
+
 
     };
 }

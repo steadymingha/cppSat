@@ -5,7 +5,7 @@
 #include "parser.hpp"
 
 #include "Astro/time_converter.hpp"
-#include "orbit_sim_def.hpp"
+#include "Common/orbit_sim_def.hpp"
 
 namespace propagator{
     class FrameConverter{
